@@ -24,7 +24,7 @@ public class DirectorService {
     public Boolean updateDircotre(Integer id,Director director){
         Director d=directorRepstory.findByIdEquals(id);
         if(d==null){
-            throw new ApiException("The id is not correct");
+            return false;
         }
         d.setName(director.getName());
         directorRepstory.save(d);
@@ -34,7 +34,7 @@ public class DirectorService {
     public Boolean deleteDir(Integer id){
         Director d=directorRepstory.findByIdEquals(id);
         if(d==null){
-            throw new ApiException("The id is not correct");
+            return false;
         }
 
         directorRepstory.delete(d);

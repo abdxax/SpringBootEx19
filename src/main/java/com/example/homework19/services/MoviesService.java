@@ -27,7 +27,7 @@ public class MoviesService {
     public Boolean updateMovie(Integer id,Movie movie){
         Movie d=moviesRepstory.findByIdEquals(id);
         if(d==null){
-            throw new ApiException("The id is not correct");
+            return false;
         }
         d.setName(movie.getName());
         d.setRating(movie.getRating());
@@ -60,7 +60,7 @@ public class MoviesService {
     public Boolean deleteMovie(Integer id){
         Movie d=moviesRepstory.findByIdEquals(id);
         if(d==null){
-            throw new ApiException("The id is not correct");
+            return false;
         }
 
         moviesRepstory.delete(d);
